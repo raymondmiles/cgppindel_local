@@ -1,0 +1,206 @@
+{
+  "name": "cgppindel_v1.0.0",
+  "title": "cgppindel_v1.0.0",
+  "summary": "cgppindel app for DNAnexus",
+  "dxapi": "1.0.0",
+  "properties": {
+    "githubRelease": "v1.0.0"
+  },
+  "inputSpec": [
+    {
+      "name": "docker_image",
+      "label": "static cgppindel docker image",
+      "class": "file",
+      "optional": false,
+      "patterns": [
+        "*tar.gz"
+      ],
+      "help": "cgppindel image tar"
+    },
+    {
+      "name": "reference",
+      "label": "reference genome",
+      "class": "file",
+      "optional": false,
+      "patterns": [
+        "*fa",
+        "*fa.gz"
+      ],
+      "help": "Reference genome file *.fa[.gz]"
+    },
+    {
+      "name": "simrep",
+      "label": "simple repeats",
+      "class": "file",
+      "optional": false,
+      "patterns": [
+        "*bed.gz","*bed"
+      ],
+      "help": "Tabix indexed simple/satellite repeats."
+    },
+    {
+      "name": "reference_index",
+      "label": "reference genome index",
+      "class": "file",
+      "optional": false,
+      "patterns": [
+        "*fai"
+      ],
+      "help": "Reference genome index file"
+    },
+    {
+      "name": "simrep_index",
+      "label": "simple repeats index",
+      "class": "file",
+      "optional": false,
+      "patterns": [
+        "*bed.gz.tbi","*bed.tbi"
+      ],
+      "help": "Tabix indexed simple/satellite repeats index file."
+    },
+    {
+      "name": "genes",
+      "label": "gene bed file",
+      "class": "file",
+      "optional": false,
+      "patterns": [
+        "*"
+      ],
+      "help": "Tabix indexed coding gene footprints."
+    },
+    {
+      "name": "unmatched",
+      "label": "Panel of normals",
+      "class": "file",
+      "optional": false,
+      "patterns": [
+        "*gff3.gz","gff3.gz.tbi"
+      ],
+      "help": "Tabix indexed gff3 of unmatched normal panel"
+    },
+    {
+      "name": "assembly",
+      "label": "genome assembly version",
+      "class": "string",
+      "default": "GRCh38",
+      "optional": false,
+      "help": "Name of assembly in use - when not available in BAM header SQ line."
+    },
+    {
+      "name": "seqtype",
+      "label": "Sequencing type",
+      "class": "string",
+      "default": "TG",
+      "choices": ["TG", "WXS","WGS"],
+      "optional": false,
+      "help": "Sequencing protocol, options TG: targeted capture, WXS: whole exome, WGS : whole genome"
+    },
+    {
+      "name": "filter",
+      "label": "Output filter rules",
+      "class": "file",
+      "optional": false,
+      "patterns": [
+        "*.lst"
+      ],
+      "help": "VCF filter rules file"
+    },
+    {
+      "name": "tumour",
+      "label": "Tumour input bam",
+      "class": "file",
+      "optional": false,
+      "patterns": [
+        "*bam"
+      ],
+      "help": "Tumour BAM file "
+    },
+    {
+      "name": "tumour_index",
+      "label": "Tumour input bam index",
+      "class": "file",
+      "optional": false,
+      "patterns": [
+        "*bai"
+      ],
+      "help": "Tumour BAM file index"
+    },
+    {
+      "name": "normal",
+      "label": "Normal input bam",
+      "class": "file",
+      "optional": false,
+      "patterns": [
+        "*bam"
+      ],
+      "help": "Normal BAM"
+    },
+    {
+      "name": "normal_index",
+      "label": "Normal input bam index",
+      "class": "file",
+      "optional": false,
+      "patterns": [
+        "*bai"
+      ],
+      "help": "Normal BAM index"
+    }
+  ],
+  "outputSpec": [
+    {
+      "name": "cgppindel_output",
+      "label": "array of cgppindel output files",
+      "class": "array:file",
+      "patterns": [
+        "*"
+      ],
+      "help": ""
+    },
+    {
+      "name": "output_vcf",
+      "label": "Variant Call Format",
+      "class": "file",
+      "patterns": [
+        "*"
+      ],
+      "help": ""
+    },
+    {
+      "name": "vcf_index",
+      "label": "VCF index",
+      "class": "file",
+      "patterns": [
+        "*"
+      ],
+      "help": ""
+    }
+  ],
+  "runSpec": {
+    "timeoutPolicy": {
+      "*": {
+        "hours": 3
+      }
+    },
+    "interpreter": "bash",
+    "file": "src/cgppindel.sh",
+    "distribution": "Ubuntu",
+    "release": "16.04",
+    "version": "1"
+  },
+  "access": {
+    "allProjects":"UPLOAD",
+    "network": [
+      "*"
+    ],
+    "project": "CONTRIBUTE"
+  },
+  "regionalOptions": {
+    "aws:eu-central-1": {
+      "systemRequirements": {
+        "*": {
+          "instanceType": "mem3_ssd1_v2_x4"
+        }
+      }
+    }
+  }
+}
