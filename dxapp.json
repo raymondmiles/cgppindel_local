@@ -173,7 +173,7 @@
         "*"
       ],
       "help": ""
-    },
+    }
   ],
   "runSpec": {
     "timeoutPolicy": {
