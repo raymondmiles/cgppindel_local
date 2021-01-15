@@ -16,7 +16,7 @@
       "patterns": [
         "*tar.gz"
       ],
-      "help": "Path to reference genome file *.fa[.gz]"
+      "help": "cgppindel image tar"
     },
     {
       "name": "reference",
@@ -133,7 +133,7 @@
       "patterns": [
         "*bam"
       ],
-      "help": "Tumour BAM/CRAM file (co-located index and bas files)"
+      "help": "Normal BAM/CRAM file (co-located index and bas files)"
     },
     {
       "name": "normal_index",
@@ -143,7 +143,7 @@
       "patterns": [
         "*bai"
       ],
-      "help": "Tumour BAM/CRAM file (co-located index and bas files)"
+      "help": "Normal BAM/CRAM file (co-located index and bas files)"
     }
   ],
   "outputSpec": [
