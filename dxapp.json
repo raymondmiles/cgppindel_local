@@ -38,7 +38,18 @@
         "*bed.gz","*bed"
       ],
       "help": "Full path to tabix indexed simple/satellite repeats."
-    },{
+    },
+    {
+      "name": "reference_index",
+      "label": "reference genome index",
+      "class": "file",
+      "optional": false,
+      "patterns": [
+        "*fai"
+      ],
+      "help": "Path to reference genome file index"
+    },
+    {
       "name": "simrep_index",
       "label": "simple repeats index",
       "class": "file",
@@ -144,7 +155,25 @@
         "*"
       ],
       "help": ""
-    }
+    },
+    {
+      "name": "output_vcf",
+      "label": "Variant Call Format",
+      "class": "file",
+      "patterns": [
+        "*"
+      ],
+      "help": ""
+    },
+    {
+      "name": "vcf_index",
+      "label": "VCF index",
+      "class": "file",
+      "patterns": [
+        "*"
+      ],
+      "help": ""
+    },
   ],
   "runSpec": {
     "timeoutPolicy": {
