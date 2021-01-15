@@ -1,19 +1,33 @@
 {
-  "name": "cgppindel",
-  "title": "cgppindel",
-  "summary": "cgppindel",
+  "name": "cgppindel_v1.0.0",
+  "title": "cgppindel_v1.0.0",
+  "summary": "cgppindel app for DNAnexus",
   "dxapi": "1.0.0",
   "version": "1.0.0",
+  "properties": {
+    "githubRelease": "v1.0.0"
+  },
   "inputSpec": [
+    {
+      "name": "docker_image",
+      "label": "static cgppindel docker image",
+      "class": "file",
+      "optional": false,
+      "patterns": [
+        "*tar.gz"
+      ],
+      "help": "Path to reference genome file *.fa[.gz]"
+    },
     {
       "name": "reference",
       "label": "reference genome",
       "class": "file",
       "optional": false,
       "patterns": [
-        "*"
+        "*fa",
+        "*fa.gz"
       ],
-      "help": ""
+      "help": "Path to reference genome file *.fa[.gz]"
     },
     {
       "name": "simrep",
@@ -21,9 +35,18 @@
       "class": "file",
       "optional": false,
       "patterns": [
-        "*"
+        "*bed.gz","*bed"
       ],
-      "help": ""
+      "help": "Full path to tabix indexed simple/satellite repeats."
+    },{
+      "name": "simrep_index",
+      "label": "simple repeats index",
+      "class": "file",
+      "optional": false,
+      "patterns": [
+        "*bed.gz.tbi","*bed.tbi"
+      ],
+      "help": "Full path to tabix indexed simple/satellite repeats."
     },
     {
       "name": "genes",
@@ -33,7 +56,7 @@
       "patterns": [
         "*"
       ],
-      "help": ""
+      "help": "Full path to tabix indexed coding gene footprints."
     },
     {
       "name": "unmatched",
@@ -41,30 +64,25 @@
       "class": "file",
       "optional": false,
       "patterns": [
-        "*"
+        "*gff3.gz","gff3.gz.tbi"
       ],
-      "help": ""
+      "help": "Full path to tabix indexed gff3 of unmatched normal panel"
     },
     {
       "name": "assembly",
       "label": "genome assembly version",
       "class": "string",
+      "default": "GRCh38",
       "optional": false,
-      "help": ""
-    },
-    {
-      "name": "species",
-      "label": "Species",
-      "class": "string",
-      "optional": false,
-      "help": ""
+      "help": "Name of assembly in use - when not available in BAM header SQ line."
     },
     {
       "name": "seqtype",
       "label": "Sequencing type",
       "class": "string",
+      "default": "TG",
       "optional": false,
-      "help": ""
+      "help": "Species -  when not available in BAM header SQ line."
     },
     {
       "name": "filter",
@@ -72,9 +90,9 @@
       "class": "file",
       "optional": false,
       "patterns": [
-        "*"
+        "*.lst"
       ],
-      "help": ""
+      "help": "VCF filter rules file"
     },
     {
       "name": "tumour",
@@ -82,9 +100,19 @@
       "class": "file",
       "optional": false,
       "patterns": [
-        "*"
+        "*bam"
       ],
-      "help": ""
+      "help": "Tumour BAM/CRAM file (co-located index and bas files)"
+    },
+    {
+      "name": "tumour_index",
+      "label": "Tumour input bam index",
+      "class": "file",
+      "optional": false,
+      "patterns": [
+        "*bai"
+      ],
+      "help": "Tumour BAM/CRAM file index (co-located index and bas files)"
     },
     {
       "name": "normal",
@@ -92,93 +120,26 @@
       "class": "file",
       "optional": false,
       "patterns": [
-        "*"
+        "*bam"
       ],
-      "help": ""
+      "help": "Tumour BAM/CRAM file (co-located index and bas files)"
     },
     {
-      "name": "outdir",
-      "label": "Output directory",
-      "class": "string",
+      "name": "normal_index",
+      "label": "Normal input bam index",
+      "class": "file",
       "optional": false,
-      "help": ""
+      "patterns": [
+        "*bai"
+      ],
+      "help": "Tumour BAM/CRAM file (co-located index and bas files)"
     }
   ],
   "outputSpec": [
     {
-      "name": "output_vcf",
-      "label": "Variant Call Format",
-      "class": "file",
-      "patterns": [
-        "*"
-      ],
-      "help": ""
-    },
-    {
-      "name": "vcf_index",
-      "label": "VCF index",
-      "class": "file",
-      "patterns": [
-        "*"
-      ],
-      "help": ""
-    },
-    {
-      "name": "wt_bam",
-      "label": "Pindel\u2010aligned reads from the wild\u2010type/normal sample",
-      "class": "file",
-      "patterns": [
-        "*"
-      ],
-      "help": ""
-    },
-    {
-      "name": "wt_bai",
-      "label": "Wild-type bam index",
-      "class": "file",
-      "patterns": [
-        "*"
-      ],
-      "help": ""
-    },
-    {
-      "name": "wt_bam_md5",
-      "class": "file",
-      "patterns": [
-        "*"
-      ],
-      "help": ""
-    },
-    {
-      "name": "mt_bam",
-      "label": "Pindel\u2010aligned reads from the mutant/tumour sample",
-      "class": "file",
-      "patterns": [
-        "*"
-      ],
-      "help": ""
-    },
-    {
-      "name": "mt_bai",
-      "label": "Mutant tumour sample index",
-      "class": "file",
-      "patterns": [
-        "*"
-      ],
-      "help": ""
-    },
-    {
-      "name": "mt_bam_md5",
-      "class": "file",
-      "patterns": [
-        "*"
-      ],
-      "help": ""
-    },
-    {
-      "name": "out_bed",
-      "label": "BED file containing ranges of events highly likely to be germline",
-      "class": "file",
+      "name": "cgppindel_output",
+      "label": "array of cgppindel output files",
+      "class": "array:file",
       "patterns": [
         "*"
       ],
@@ -204,10 +165,10 @@
     "project": "CONTRIBUTE"
   },
   "regionalOptions": {
-    "aws:us-east-1": {
+    "aws:eu-central-1": {
       "systemRequirements": {
         "*": {
-          "instanceType": "mem1_ssd1_v2_x4"
+          "instanceType": "mem3_ssd1_v2_x4"
         }
       }
     }
