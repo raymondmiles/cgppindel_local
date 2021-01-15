@@ -20,15 +20,15 @@ Required inputs for this app:
 |Input |Details|
 |--- |---|
 |docker image| cgppindel docker image |
-|reference.fa [.fai] |Path to reference genome file|
-|simrep.bed [.tbi]| Full path to tabix indexed simple/satellite repeats.|
-| genes | Full path to tabix indexed coding gene footprints.|
-|unmatched|Full path to tabix indexed gff3 of unmatched normal panel|
+|reference.fa [.fai] |Reference genome file|
+|simrep.bed [.tbi]| Tabix indexed simple/satellite repeats.|
+| genes | Tabix indexed coding gene footprints.|
+|unmatched|Tabix indexed gff3 of unmatched normal panel|
 |assembly string| Assembly version (default: GRCh38) |
 |seqtype string| TG: targeted panel, WXS: Whole Exome, WGS: Whole Genome|
 |filter.lst|Output filter rules|
-|tumour bam input [.bai]|Tumour BAM/CRAM file index (co-located index and bas files)|
-|normal bam input [.bai]|Normal BAM/CRAM file (co-located index and bas files)|
+|tumour bam input [.bai]|Tumour BAM/CRAM file index |
+|normal bam input [.bai]|Normal BAM/CRAM file|
 <br></br>
 
 ## What does this app output?

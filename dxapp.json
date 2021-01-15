@@ -3,7 +3,6 @@
   "title": "cgppindel_v1.0.0",
   "summary": "cgppindel app for DNAnexus",
   "dxapi": "1.0.0",
-  "version": "1.0.0",
   "properties": {
     "githubRelease": "v1.0.0"
   },
@@ -27,7 +26,7 @@
         "*fa",
         "*fa.gz"
       ],
-      "help": "Path to reference genome file *.fa[.gz]"
+      "help": "Reference genome file *.fa[.gz]"
     },
     {
       "name": "simrep",
@@ -37,7 +36,7 @@
       "patterns": [
         "*bed.gz","*bed"
       ],
-      "help": "Full path to tabix indexed simple/satellite repeats."
+      "help": "Tabix indexed simple/satellite repeats."
     },
     {
       "name": "reference_index",
@@ -47,7 +46,7 @@
       "patterns": [
         "*fai"
       ],
-      "help": "Path to reference genome file index"
+      "help": "Reference genome index file"
     },
     {
       "name": "simrep_index",
@@ -57,7 +56,7 @@
       "patterns": [
         "*bed.gz.tbi","*bed.tbi"
       ],
-      "help": "Full path to tabix indexed simple/satellite repeats."
+      "help": "Tabix indexed simple/satellite repeats index file."
     },
     {
       "name": "genes",
@@ -67,7 +66,7 @@
       "patterns": [
         "*"
       ],
-      "help": "Full path to tabix indexed coding gene footprints."
+      "help": "Tabix indexed coding gene footprints."
     },
     {
       "name": "unmatched",
@@ -77,7 +76,7 @@
       "patterns": [
         "*gff3.gz","gff3.gz.tbi"
       ],
-      "help": "Full path to tabix indexed gff3 of unmatched normal panel"
+      "help": "Tabix indexed gff3 of unmatched normal panel"
     },
     {
       "name": "assembly",
@@ -92,8 +91,9 @@
       "label": "Sequencing type",
       "class": "string",
       "default": "TG",
+      "choices": ["TG", "WXS","WGS"],
       "optional": false,
-      "help": "Species -  when not available in BAM header SQ line."
+      "help": "Sequencing protocol, options TG: targeted capture, WXS: whole exome, WGS : whole genome"
     },
     {
       "name": "filter",
@@ -113,7 +113,7 @@
       "patterns": [
         "*bam"
       ],
-      "help": "Tumour BAM/CRAM file (co-located index and bas files)"
+      "help": "Tumour BAM file "
     },
     {
       "name": "tumour_index",
@@ -123,7 +123,7 @@
       "patterns": [
         "*bai"
       ],
-      "help": "Tumour BAM/CRAM file index (co-located index and bas files)"
+      "help": "Tumour BAM file index"
     },
     {
       "name": "normal",
@@ -133,7 +133,7 @@
       "patterns": [
         "*bam"
       ],
-      "help": "Normal BAM/CRAM file (co-located index and bas files)"
+      "help": "Normal BAM"
     },
     {
       "name": "normal_index",
@@ -143,7 +143,7 @@
       "patterns": [
         "*bai"
       ],
-      "help": "Normal BAM/CRAM file (co-located index and bas files)"
+      "help": "Normal BAM index"
     }
   ],
   "outputSpec": [
@@ -178,7 +178,7 @@
   "runSpec": {
     "timeoutPolicy": {
       "*": {
-        "hours": 24
+        "hours": 3
       }
     },
     "interpreter": "bash",
@@ -188,6 +188,7 @@
     "version": "1"
   },
   "access": {
+    "allProjects":"UPLOAD",
     "network": [
       "*"
     ],
