@@ -19,7 +19,6 @@ main() {
     
     mkdir input
     mkdir -p out/cgppindel_output
-    chmod 777 out/cgpindel_output
 
     dx-download-all-inputs
     find ~/in -type f -name "*" -print0 | xargs -0 -I {} mv {} ~/input
@@ -50,7 +49,7 @@ main() {
     -filter /data/input/$filter_name \
     -tumour /data/input/$tumour_name \
     -normal /data/input/$normal_name \
-    -outdir /data/out/cgpindel_output
+    -outdir /data/out/cgppindel_output
 
 
 
