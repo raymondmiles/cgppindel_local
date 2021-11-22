@@ -65,9 +65,11 @@ main() {
     mv out/cgppindel_output/*.flagged.vcf.gz out/output_vcf
     mv out/cgppindel_output/*.flagged.vcf.gz.tbi out/vcf_index
 
+    # Move all .out and .err to a temporary folder
     mv out/cgppindel_output/logs/*.err temp_logs
     mv out/cgppindel_output/logs/*.out temp_logs
 
+    # zip all .out & .err into logs.tar.gz
     tar -zcf out/output_log/logs.tar.gz --remove-files temp_logs
 
     # Upload output files
