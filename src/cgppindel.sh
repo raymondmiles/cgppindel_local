@@ -21,6 +21,7 @@ main() {
     mkdir -p out/cgppindel_output
     mkdir -p out/output_vcf
     mkdir -p out/vcf_index
+    mkdir -p out/output_log
 
     # Make the output directory writeable for the app to work.
     chmod 777 out/cgppindel_output
@@ -62,7 +63,10 @@ main() {
     # Move vcf and index in specified runfolder to enable downstream use
     mv out/cgppindel_output/*.flagged.vcf.gz out/output_vcf
     mv out/cgppindel_output/*.flagged.vcf.gz.tbi out/vcf_index
+    mv out/cgppindel_output/logs/*.err out/output_log
+    mv out/cgppindel_output/logs/*.out out/output_log
 
+    tar -zcf logs.tar.gz --remove-files out/output_log
 
     # Upload output files
     dx-upload-all-outputs
