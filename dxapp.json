@@ -121,7 +121,6 @@
       "patterns": [
         "*bam"
       ],
-      "default": {"$dnanexus_link": "file-G69x72j4yfk3GgGx4ZqgVxK6"},
       "help": "Tumour BAM file "
     },
     {
@@ -132,7 +131,6 @@
       "patterns": [
         "*bai"
       ],
-      "default": {"$dnanexus_link": "file-G69x72j4yfk3GgGx4ZqgVxK4"},
       "help": "Tumour BAM file index"
     },
     {
