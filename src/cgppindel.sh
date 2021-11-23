@@ -73,7 +73,7 @@ main() {
     tar -zcf out/output_log/logs.tar.gz --remove-files temp_logs
 
     # Upload output files
-    dx-upload-all-outputs
+    dx-upload-all-outputs --parallel
 
     echo "Upload Complete"
 }
