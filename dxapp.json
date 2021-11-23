@@ -1,10 +1,10 @@
 {
-  "name": "cgppindel_v1.0.0",
-  "title": "cgppindel_v1.0.0",
+  "name": "cgppindel_v1.0.1",
+  "title": "cgppindel_v1.0.1",
   "summary": "cgppindel app for DNAnexus",
   "dxapi": "1.0.0",
   "properties": {
-    "githubRelease": "v1.0.0"
+    "githubRelease": "v1.0.1"
   },
   "inputSpec": [
     {
@@ -15,6 +15,7 @@
       "patterns": [
         "*tar.gz"
       ],
+      "default": {"$dnanexus_link": "file-Fz0KxFj4KB7fxxZ06vy2B2P3"},
       "help": "cgppindel image tar"
     },
     {
@@ -26,6 +27,7 @@
         "*fa",
         "*fa.gz"
       ],
+      "default": {"$dnanexus_link": "file-Fy4gjFj41zgGjKJ85FYYPX4q"},
       "help": "Reference genome file *.fa[.gz]"
     },
     {
@@ -36,6 +38,7 @@
       "patterns": [
         "*bed.gz","*bed"
       ],
+      "default": {"$dnanexus_link": "file-Fz0Q2GQ41zgB8BK7143y65Q1"},
       "help": "Tabix indexed simple/satellite repeats."
     },
     {
@@ -46,6 +49,7 @@
       "patterns": [
         "*fai"
       ],
+      "default": {"$dnanexus_link": "file-G00jqQj4J7Byv963KkZ40kXv"},
       "help": "Reference genome index file"
     },
     {
@@ -56,6 +60,7 @@
       "patterns": [
         "*bed.gz.tbi","*bed.tbi"
       ],
+      "default": {"$dnanexus_link": "file-Fz0Q2Kj41zg0Fgk4G70P9P1X"},
       "help": "Tabix indexed simple/satellite repeats index file."
     },
     {
@@ -66,6 +71,7 @@
       "patterns": [
         "*"
       ],
+      "default": {"$dnanexus_link": "file-FybyxV841zgB8v1y3fFbFB0G"},
       "help": "Tabix indexed coding gene footprints."
     },
     {
@@ -76,6 +82,7 @@
       "patterns": [
         "*gff3.gz","gff3.gz.tbi"
       ],
+      "default": {"$dnanexus_link": "file-Fz8Q0vj41zg6j03fP1vbvfFp"},
       "help": "Tabix indexed gff3 of unmatched normal panel"
     },
     {
@@ -103,6 +110,7 @@
       "patterns": [
         "*.lst"
       ],
+      "default": {"$dnanexus_link": "file-Fz8xvQj41zgGg10ZJzx8Qz53"},
       "help": "VCF filter rules file"
     },
     {
@@ -133,6 +141,7 @@
       "patterns": [
         "*bam"
       ],
+      "default": {"$dnanexus_link": "file-Fy9BXxQ40vjGfxP46Jb78Xf1"},
       "help": "Normal BAM"
     },
     {
@@ -143,6 +152,7 @@
       "patterns": [
         "*bai"
       ],
+      "default": {"$dnanexus_link": "file-Fy9BXxQ40vj7qPJq1Kppjx0F"},
       "help": "Normal BAM index"
     }
   ],
@@ -159,6 +169,15 @@
     {
       "name": "output_vcf",
       "label": "Variant Call Format",
+      "class": "file",
+      "patterns": [
+        "*"
+      ],
+      "help": ""
+    },
+    {
+      "name": "output_log",
+      "label": "logs file",
       "class": "file",
       "patterns": [
         "*"
