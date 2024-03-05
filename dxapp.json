@@ -202,7 +202,7 @@
     "file": "src/cgppindel.sh",
     "distribution": "Ubuntu",
     "release": "20.04",
-    "version": "1"
+    "version": "0"
   },
   "developers":[
     "org-emee_1"
