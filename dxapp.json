@@ -1,6 +1,6 @@
 {
-  "name": "cgppindel_v1.1.1",
-  "title": "cgppindel_v1.1.1",
+  "name": "eggd_cgppindel_v1.1.1",
+  "title": "eggd_cgppindel_v1.1.1",
   "summary": "cgppindel app for DNAnexus",
   "whatsNew": "* Updated version in name, updated ubuntu release, deleted githubrelease field, added developers and authorised users as org-emee_1 ",
   "dxapi": "1.0.0",
