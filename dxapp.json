@@ -1,11 +1,9 @@
 {
-  "name": "cgppindel_v1.0.1",
-  "title": "cgppindel_v1.0.1",
+  "name": "cgppindel_v1.1.1",
+  "title": "cgppindel_v1.1.1",
   "summary": "cgppindel app for DNAnexus",
+  "whatsNew": "* Updated version in name, updated ubuntu release, deleted githubrelease field, added developers and authorised users as org-emee_1 ",
   "dxapi": "1.0.0",
-  "properties": {
-    "githubRelease": "v1.0.1"
-  },
   "inputSpec": [
     {
       "name": "docker_image",
@@ -203,9 +201,15 @@
     "interpreter": "bash",
     "file": "src/cgppindel.sh",
     "distribution": "Ubuntu",
-    "release": "16.04",
+    "release": "20.04",
     "version": "1"
   },
+  "developers":[
+    "org-emee_1"
+  ],
+  "authorizedUsers": [
+    "org-emee_1"
+  ],
   "access": {
     "allProjects":"UPLOAD",
     "network": [
