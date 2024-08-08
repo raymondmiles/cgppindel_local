@@ -1,0 +1,10 @@
+.*.log*
+.nextflow*
+data/
+work/
+pwd
+Untitled*
+temp_logs/
+tmpPindel/
+out/
+.nextflow/
