@@ -1,0 +1,57 @@
+# Ignore the Nextflow log files
+.nextflow*
+.nextflow.log
+.nextflow.trace
+*.log*
+*.trace
+
+# Ignore the work directory where Nextflow executes processes
+work/
+
+# Ignore result directories
+results/
+output/
+output_files/
+results/
+out/
+
+# Ignore any temporary files created during execution
+tmp/
+*.tmp
+
+# Ignore parameter files
+*.params
+
+# Ignore metadata files
+.metadata/
+
+# Ignore local configuration files
+local.config
+*.local
+
+# Ignore sensitive files
+*.key
+*.pem
+*.enc
+
+# Ignore directories and files specific to your IDE
+.vscode/
+*.swp
+*~
+
+# Ignore input files
+*.bam
+*.bai
+*.fa
+*.fai
+*.tar 
+*.bed
+*.gz
+*.gzi
+*.lst
+*.tbi
+cgppindel_id
+docker_image
+
+# Ignore folders with inputs
+downloaded_inputs/
